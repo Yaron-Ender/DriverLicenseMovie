@@ -37,6 +37,18 @@ width:100%;
 height:100%;
 background:center/cover no-repeat url(./assets/village.jpg);
 }
+& > .scene-four{
+position: absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:center/cover no-repeat url(./assets/road.jpg);
+background-position:bottom left;
+&.add-moving-car-animation{
+animation: movingStreet 10s linear infinite forwards;
+}
+}
 .none{
     display:none;
 }
@@ -45,4 +57,7 @@ background:center/cover no-repeat url(./assets/village.jpg);
 to{
 top:0
 }
+}
+@keyframes movingStreet {
+to{background-position:bottom right;}
 }

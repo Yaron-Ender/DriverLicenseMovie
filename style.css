@@ -29,9 +29,23 @@ section.drawing-wrapper {
     width: 100%;
     height: 100%;
     background: center/cover no-repeat url(./assets/village.jpg); }
+  section.drawing-wrapper > .scene-four {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: center/cover no-repeat url(./assets/road.jpg);
+    background-position: bottom left; }
+    section.drawing-wrapper > .scene-four.add-moving-car-animation {
+      animation: movingStreet 10s linear infinite forwards; }
   section.drawing-wrapper .none {
     display: none; }
 
 @keyframes scene-two {
   to {
     top: 0; } }
+
+@keyframes movingStreet {
+  to {
+    background-position: bottom right; } }
