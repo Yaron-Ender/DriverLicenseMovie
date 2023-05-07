@@ -13,6 +13,10 @@ const table = new Image();
 table.src=' ./assets/table.png'
 const car = new Image();
 car.src = "./assets/car.png";
+const trafficLight = new Image()
+trafficLight.src='./assets/traffic light.svg'
+const trafficLigthTwist = new Image();
+trafficLigthTwist.src = "./assets/traffic-light-twist.svg";
 //time varible for scene 4
 let sceneFourTime;
 //canvas dimention
@@ -646,7 +650,6 @@ async function scene3Part5(Scene3time5){
 c3.clearRect(0, 0, canvasThree.width, canvasThree.height);
 c3.drawImage(car,(canvasThree.width*.1)+mH,(canvasThree.height*.8),(canvasThree.width/5)*carSize,(canvasThree.height/5)*carSize)
 bubbleRight3.handleTextAndBubble(c3,"בוא אלמד אותך דרך קיצור",true, "black",'rgba(255,255,255,0.5)');
-console.log(Date.now() - Scene3time5);
 if(Date.now() - Scene3time5<4600){
 await delay(3000);
 carTwo();
@@ -686,7 +689,6 @@ const bubbleRight4 = new Bubble(
   100,
   150
   );
-  
   let mapSc4 = new Map()
   mapSc4.set('bubbleOneSc4',true);
   mapSc4.set('bubbleTwoSc4',true);
@@ -696,6 +698,10 @@ const bubbleRight4 = new Bubble(
   mapSc4.set('bubbleSixSc4',true);
   mapSc4.set('bubbleSevenSc4',true);
   mapSc4.set('bubbleEightSc4',true);
+  mapSc4.set('bubbleNineSc4',true);
+  mapSc4.set('bubbleTenSc4',true);
+  mapSc4.set('bubbleElevenSc4',true);
+  mapSc4.set('bubbleTwelfeSc4',true);
   
   function hadleOrderSpeach(speak){
     for(let key of mapSc4.keys()){
@@ -708,16 +714,16 @@ const bubbleRight4 = new Bubble(
   }
 
   async function startScene4(){
-  carHeightCounter++
-c4.clearRect(-200,-200,canvasFour.width*2,canvasFour.height*1.5);
- c4.drawImage(car,(canvasFour.width*.2),(canvasFour.height*.8),(canvasFour.width/5)*carSize,(canvasFour.height/5)*carSize)
-c4.fillStyle = "rgba(255,255,255,1)";
-c4.fill();
- //bubble speach
-if( Date.now() - sceneFourTime > 1000&&mapSc4.get('bubbleOneSc4')){
-bubbleRight4.handleTextAndBubble(c4,"איזה פחד , בפעם הבאה את נוסעת רק עם אמא",true, "red");
-}
-if (Date.now() - sceneFourTime > 4000&&mapSc4.get('bubbleTwoSc4')) {
+    carHeightCounter++
+    c4.clearRect(-200,-200,canvasFour.width*2,canvasFour.height*1.5);
+    c4.drawImage(car,(canvasFour.width*.2),(canvasFour.height*.8),(canvasFour.width/5)*carSize,(canvasFour.height/5)*carSize)
+    c4.fillStyle = "rgba(255,255,255,1)";
+    c4.fill();
+    //bubble speach
+    if( Date.now() - sceneFourTime > 1000&&mapSc4.get('bubbleOneSc4')){
+      bubbleRight4.handleTextAndBubble(c4,"איזה פחד , בפעם הבאה את נוסעת רק עם אמא",true, "red");
+    }
+    if (Date.now() - sceneFourTime > 4000&&mapSc4.get('bubbleTwoSc4')) {
  hadleOrderSpeach("bubbleTwoSc4");
 bubbleRight4.handleTextAndBubble(c4,"אבא תראה כמה חניות והנה העמוד שמחליף צבעים",false,"green");
 }
@@ -729,22 +735,54 @@ if (Date.now() - sceneFourTime > 10500&&mapSc4.get('bubbleFourSc4')) {
   hadleOrderSpeach("bubbleFourSc4");
   bubbleRight4.handleTextAndBubble(c4,"!!! תעצרי",true, "red");
 }
+//add stand traffic light
 if (Date.now() - sceneFourTime > 12500&&mapSc4.get('bubbleFiveSc4')) {
   hadleOrderSpeach("bubbleFiveSc4");
   bubbleRight4.handleTextAndBubble(c4,"למה אתה כועס , אתה יכול ללחוץ על הברקס",false, "green");
   sceneFour.classList.remove("add-moving-car-animation");
+  c4.drawImage(trafficLight,(canvasFour.width/2),(canvasFour.height*.64),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
+
 }
 if (Date.now() - sceneFourTime > 15000&&mapSc4.get('bubbleSixSc4')) {
   hadleOrderSpeach("bubbleSixSc4");
+   c4.drawImage(trafficLight,(canvasFour.width/2),(canvasFour.height*.64),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
   bubbleRight4.handleTextAndBubble(c4,"באוטו הזה הזה יש רק ברקס אחד והוא בצד של הנהג",true, "red");
 }
 if (Date.now() - sceneFourTime > 18000&&mapSc4.get('bubbleSevenSc4')) {
   hadleOrderSpeach("bubbleSevenSc4");
+  c4.drawImage(trafficLight,(canvasFour.width/2),(canvasFour.height*.64),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
   bubbleRight4.handleTextAndBubble(c4,"אולי נשתול בירוחם כמה רמזורים שגם לנו יהיו רמזורים",false, "green");
 }
 if (Date.now() - sceneFourTime > 21000&&mapSc4.get('bubbleEightSc4')) {
   hadleOrderSpeach("bubbleEightSc4");
+  c4.drawImage(trafficLight,(canvasFour.width/2),(canvasFour.height*.64),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
    bubbleRight4.handleTextAndBubble(c4,"רעיון טוב",true, "red");
+}
+//twisted traffic light
+if (Date.now() - sceneFourTime > 24000&&mapSc4.get('bubbleNineSc4')) {
+  hadleOrderSpeach("bubbleNineSc4");
+  c4.drawImage(trafficLigthTwist,(canvasFour.width*0.15),(canvasFour.height*.81),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
+  createSparks(canvasFour.width * 0.14, canvasFour.height * 0.97, c4);
+   bubbleRight4.handleTextAndBubble(c4,"אבא , יש לך רעיון איפה נשתול בירוחם את הרמזור הראשון",true, "red");
+   sceneFour.classList.add("add-moving-car-animation");
+}
+if (Date.now() - sceneFourTime > 27000&&mapSc4.get('bubbleTenSc4')) {
+  hadleOrderSpeach("bubbleTenSc4");
+  c4.drawImage(trafficLigthTwist,(canvasFour.width*0.15),(canvasFour.height*.81),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
+  createSparks(canvasFour.width * 0.14, canvasFour.height * 0.97, c4);
+   bubbleRight4.handleTextAndBubble(c4,"כן, יש לי מקום ממש מצויין",false, "green");
+}
+if (Date.now() - sceneFourTime > 30000&&mapSc4.get('bubbleElevenSc4')) {
+  hadleOrderSpeach("bubbleElevenSc4");
+  c4.drawImage(trafficLigthTwist,(canvasFour.width*0.15),(canvasFour.height*.81),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
+  createSparks(canvasFour.width * 0.14, canvasFour.height * 0.97, c4);
+   bubbleRight4.handleTextAndBubble(c4,"אבא, למה יש ניידת משטרה מאחורנו",true, "red");
+}
+if (Date.now() - sceneFourTime > 33000&&mapSc4.get('bubbleTwelfeSc4')) {
+  hadleOrderSpeach("bubbleTwelfeSc4");
+  c4.drawImage(trafficLigthTwist,(canvasFour.width*0.15),(canvasFour.height*.81),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
+  createSparks(canvasFour.width * 0.14, canvasFour.height * 0.97, c4);
+   bubbleRight4.handleTextAndBubble(c4,"אוי ,זה בטח בגלל ששכחנו לשים שלט של נהג חדש",false, "green");
 }
 //car transform
 if (sceneFour.classList.contains("add-moving-car-animation")) {
@@ -763,7 +801,37 @@ carHeightCounter=1
   requestAnimationFrame(startScene4)
 }
 
-
+class Sparks{
+constructor(x,y,r,ctx,color){
+this.x=x;
+this.y=y;
+this.r=r;
+this.ctx=ctx;
+this.color=color;
+}
+spark(){
+  // this.ctx.shadowColor = "hsl(12 0% 0%)";
+  // this.ctx.shadowBlur = 10;
+this.ctx.beginPath()
+ this.ctx.fillStyle=`hsl(${this.color},100%,50%)`;
+this.ctx.arc(this.x,this.y,this.r,5,Math.PI*2)
+this.ctx.fill()
+return this
+}
+}
+let sparksArr=[]
+let sparkOffset=0.1
+function createSparks(x,y,ctx){
+for(let i = 1;i<150;i++){
+sparkOffset+=0.1
+const r= Math.random()*18
+let color = Math.random()*70
+let spark = new Sparks(x+(i*0.05), y+(-i*0.08), r, ctx,color)
+spark.spark();
+sparksArr.push(spark)
+}
+}
+// createSparks(350,50,50,c4)
 function delay(ms){
   return new Promise((res)=>{setTimeout(res,ms)})
 }
