@@ -39,6 +39,19 @@ section.drawing-wrapper {
     background-position: bottom left; }
     section.drawing-wrapper > .scene-four.add-moving-car-animation {
       animation: movingStreet 10s linear infinite forwards; }
+  section.drawing-wrapper > .scene-five {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: center/cover no-repeat url(./assets/street.jpg); }
+  section.drawing-wrapper > .scene-end {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
   section.drawing-wrapper .none {
     display: none; }
 
