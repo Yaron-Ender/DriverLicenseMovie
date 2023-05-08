@@ -52,7 +52,7 @@ let stopChangeArm = false;
 let phone =false;
 let contTospeak=true;
 //varible for the END Animation
-let startCreateStars=true;
+let startCreateStars = true
 let starsArray=[];
 
 cUp.beginPath()
@@ -837,7 +837,7 @@ if(Date.now() - sceneFourTime  > 55000&&mapSc5.get('bubbleFourSc5')){
 
 }
 
-function carReverse(){
+ async function carReverse(){
   c5.clearRect(-200,-200,canvasFive.width*2,canvasFive.height*1.5);
   c5.setTransform(1,0,0,1,0,0)
   c5.drawImage(trafficLightHalf,(canvasFive.width*0.88),(canvasFive.height*.6),(canvasFive.width/7)*carSize,(canvasFive.height/5)*carSize)
@@ -852,12 +852,25 @@ function carReverse(){
   }
   if(reverseSpeed>=canvasFive.width/2||Date.now() - sceneFourTime >60000)
   {
-    sceneFive.classList.add('none')
-    sceneEnd.classList.remove('none')
-    starsAnimation=true
+  sceneFive.classList.add('none')
+  sceneEnd.classList.remove('none')
+  await delay(1500).then(()=>{
+if(startCreateStars){
+  for(let i=1;i<1500;i++){
+  let start = new Start(canvasEnd.width/2,canvasEnd.height/2,cEnd)
+  starsArray.push(start)
   }
+  starsAnimation()
+  startCreateStars=false
 }
 
+
+
+
+
+  })
+  }
+}
 
 //scene END
 btn.addEventListener('click',()=>{
@@ -894,28 +907,20 @@ return this;
 }
 }
 
-if(startCreateStars){
-for(let i=1;i<1500;i++){
-let start = new Start(canvasEnd.width/2,canvasEnd.height/2,cEnd)
-starsArray.push(start)
-}
-starsAnimation()
-}
+
 function starsAnimation(){
 cEnd.clearRect(0,0,canvasEnd.width,canvasEnd.height)
 handleStars()
-if(startCreateStars){
-requestAnimationFrame(starsAnimation)
+if (Date.now() - sceneFourTime < 100000) {
+  requestAnimationFrame(starsAnimation);
+}
 }
 
-}
 function handleStars(){
-
 starsArray.forEach((st)=>{
- console.log(st.x);
 st.update().draw()
 })
-let newStarsArr = starsArray.filter((st)=>st.x<canvasEnd.width||canvasEnd.height)
+let newStarsArr = starsArray.filter((st)=>st.x<canvasEnd.width*1.3||st.y<canvasEnd.height*1.3)
 starsArray =newStarsArr
 }
 function delay(ms){
