@@ -16,6 +16,7 @@ const c4 = canvasFour.getContext("2d");
 const c5 = canvasFive.getContext("2d");
 const cEnd = canvasEnd.getContext("2d");
 const cDown = canvasDown.getContext("2d");
+const now = Date.now();
 const table = new Image();
 table.src=' ./assets/table.png'
 const car = new Image();
@@ -229,7 +230,10 @@ if(armLeftY===38&&contTospeak){
 
 }
 }
-
+//start animations
+setTimeout(()=>{
+startTextAnimation()
+},1000)
 //***************************************** */
 //*************22222222222222222****************** */
 //******22222222222222222222222222*********** */
@@ -251,7 +255,6 @@ const m3 = new Man(canvasTow.width / 2.1, canvasTow.height * 0.7, 70, 55, c2);
 //this varible is for changing the path pf tracking
 let trackY =m2.y
 let trackX =m2.x
-const now = Date.now();
 let contToStep2= false;
 c2.fillStyle='black'
 c2.save()
@@ -385,11 +388,6 @@ function roundFigure(){
 mouseOpen = 7; 
 speakLoudly(); 
   }
-  //25000
-  // mouseOpen=7
-  // if (Date.now() - now >17400) {
-  //   speakLoudly()
-  // }
 }
 
 async function speakLoudly(){
@@ -632,8 +630,6 @@ await delay(1000).then(()=>{
 }
 //scene Four
 let carHeightCounter=0
-startScene4();
-sceneFourTime = Date.now();
 //instance speach bublle
 const bubbleRight4 = new Bubble(
   canvasFour.width * 0.3,
@@ -807,17 +803,6 @@ const bubbleRight5 = new Bubble(
   mapSc5.set('bubbleFourSc5',true)
  
   function startScene5(){
-    // trafficLightHalf.addEventListener('load',()=>{
-      //   // c5.globalCompositeOperation = "color-burn";
-      //   // c5.drawImage(trafficLightHalf,(canvasFive.width*0.88),(canvasFive.height*.6),(canvasFive.width/7)*carSize,(canvasFive.height/5)*carSize)
-      
-      
-      //   // c5.setTransform(1, 0, 0, 1, 0, 0);
-      //   // let storedTransform = c5.getTransform();
-      //   // c5.setTransform(1,0,0,1,-300,0)
-      //   // bubbleRight5.handleTextAndBubble(c5," נו אבא מתי הרמזור יתחלף לירוק ",true, "red"); 
-      //   // c5.drawImage(car,(canvasFive.width*.7),(canvasFive.height*.7),(canvasFive.width/5)*carSize,(canvasFive.height/5)*carSize)
-      // })
       c5.fillStyle='white';
       c5.fill();
       c5.save();
@@ -864,7 +849,9 @@ function carReverse(){
   if(reverseSpeed<canvasFive.width/2){
   reverseSpeed+=0.2
   requestAnimationFrame(carReverse)
-  }else{
+  }
+  if(reverseSpeed>=canvasFive.width/2)
+  {
     sceneEnd.classList.remove('none')
     sceneFive.classList.add('none')
   }
