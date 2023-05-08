@@ -11,10 +11,6 @@ section.drawing-wrapper {
     top: 0;
     left: 0;
     background: center/cover no-repeat url(./assets/room.jpg); }
-    section.drawing-wrapper > .scene-one > .canvas-up {
-      border: 2px solid red; }
-    section.drawing-wrapper > .scene-one > .canvas-down {
-      border: 2px solid green; }
   section.drawing-wrapper > .scene-two {
     position: absolute;
     top: 0;
@@ -52,6 +48,21 @@ section.drawing-wrapper {
     left: 0;
     width: 100%;
     height: 100%; }
+    section.drawing-wrapper > .scene-end > canvas.canvas-end {
+      position: absolute;
+      top: 0;
+      left: 0; }
+    section.drawing-wrapper > .scene-end > .reload {
+      position: absolute;
+      top: 10%;
+      left: 5%;
+      z-index: 5; }
+      section.drawing-wrapper > .scene-end > .reload > button {
+        padding: 1em 3em;
+        font-size: 1.5em;
+        box-shadow: 0.1em 0.1em 1em black;
+        border-radius: 8%;
+        cursor: pointer; }
   section.drawing-wrapper .none {
     display: none; }
 

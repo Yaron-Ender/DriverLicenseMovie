@@ -176,6 +176,7 @@ m.drawMan()
 //functions
 //handle with text
 function startTextAnimation(){
+cUp.fillStyle='red'
 cUp.clearRect(0,0,canvasUp.width,250)
 if(moveDadyText<canvasUp.width/4){
 moveDadyText++
@@ -191,7 +192,7 @@ function passedTheTest(){
 cUp.clearRect(0, 0, canvasUp.width, 300);
 if (moveDadyText < canvasUp.width*.7 ) {
     moveDadyText++;
-    cUp.font = "48px serif";
+    cUp.font = "70px serif";
     cUp.fillText(" !!! עברתי טסט", canvasUp.width - moveDadyText * 5, 150); 
     requestAnimationFrame(passedTheTest)
  if(moveDadyText> 160){
@@ -230,10 +231,7 @@ if(armLeftY===38&&contTospeak){
 
 }
 }
-//start animations
-setTimeout(()=>{
-startTextAnimation()
-},1000)
+
 //***************************************** */
 //*************22222222222222222****************** */
 //******22222222222222222222222222*********** */
@@ -330,9 +328,7 @@ fitMeasureText(text, fontSize,ctx) {
 }
 }
 //end of Bubble Speach
-// c2.fillStyle='black'
-// c2.save()
-// c2.fill()
+
 //functions
 //figure is speaking
 function speak(){
@@ -586,7 +582,7 @@ c3.clearRect(0, 0, canvasThree.width, canvasThree.height);
 c3.drawImage(car,(canvasThree.width*.1)+mH,(canvasThree.height*.8),(canvasThree.width/5)*carSize,(canvasThree.height/5)*carSize)
 c4.fillStyle = "rgba(255,255,255,1)";
 c4.fill();
-bubbleRight3.handleTextAndBubble(c3, "היי, לאיזה כיוון את נוהגת", false, "red",''); 
+bubbleRight3.handleTextAndBubble(c3, "היי, לאיזה כיוון את נוסעת", false, "red",''); 
 if (Date.now() - Scene3time4 < 2000) {
 Scene3time5 = Date.now();
 await delay(3000);
@@ -702,66 +698,66 @@ sparksArr.push(spark)
     }
     if (Date.now() - sceneFourTime > 4000&&mapSc4.get('bubbleTwoSc4')) {
  hadleOrderSpeach("bubbleTwoSc4",mapSc4);
-bubbleRight4.handleTextAndBubble(c4,"אבא תראה כמה חניות והנה העמוד שמחליף צבעים",false,"green");
+bubbleRight4.handleTextAndBubble(c4,"אבא תראה כמה חנויות והנה העמוד שמחליף צבעים",false,"green");
 }
-if( Date.now() - sceneFourTime > 8500&&mapSc4.get('bubbleThreeSc4')){
+if( Date.now() - sceneFourTime > 9000&&mapSc4.get('bubbleThreeSc4')){
 hadleOrderSpeach("bubbleThreeSc4",mapSc4);
 bubbleRight4.handleTextAndBubble(c4,"קוראים לזה רמזור והוא בצבע אדום",true, "red");
 }
-if (Date.now() - sceneFourTime > 10500&&mapSc4.get('bubbleFourSc4')) {
+if (Date.now() - sceneFourTime > 12500&&mapSc4.get('bubbleFourSc4')) {
   hadleOrderSpeach("bubbleFourSc4",mapSc4);
   bubbleRight4.handleTextAndBubble(c4,"!!! תעצרי",true, "red");
 }
 //add stand traffic light
-if (Date.now() - sceneFourTime > 12500&&mapSc4.get('bubbleFiveSc4')) {
+if (Date.now() - sceneFourTime > 14000&&mapSc4.get('bubbleFiveSc4')) {
   hadleOrderSpeach("bubbleFiveSc4",mapSc4);
   bubbleRight4.handleTextAndBubble(c4,"למה אתה כועס , אתה יכול ללחוץ על הברקס",false, "green");
   sceneFour.classList.remove("add-moving-car-animation");
   c4.drawImage(trafficLight,(canvasFour.width/2),(canvasFour.height*.64),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
 
 }
-if (Date.now() - sceneFourTime > 15000&&mapSc4.get('bubbleSixSc4')) {
+if (Date.now() - sceneFourTime > 17000&&mapSc4.get('bubbleSixSc4')) {
   hadleOrderSpeach("bubbleSixSc4",mapSc4);
    c4.drawImage(trafficLight,(canvasFour.width/2),(canvasFour.height*.64),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
-  bubbleRight4.handleTextAndBubble(c4,"באוטו הזה הזה יש רק ברקס אחד והוא בצד של הנהג",true, "red");
+  bubbleRight4.handleTextAndBubble(c4,"באוטו הזה יש רק ברקס אחד והוא בצד של הנהג",true, "red");
 }
-if (Date.now() - sceneFourTime > 18000&&mapSc4.get('bubbleSevenSc4')) {
+if (Date.now() - sceneFourTime > 20000&&mapSc4.get('bubbleSevenSc4')) {
   hadleOrderSpeach("bubbleSevenSc4",mapSc4);
   c4.drawImage(trafficLight,(canvasFour.width/2),(canvasFour.height*.64),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
   bubbleRight4.handleTextAndBubble(c4,"אולי נשתול בירוחם כמה רמזורים שגם לנו יהיו רמזורים",false, "green");
 }
-if (Date.now() - sceneFourTime > 21000&&mapSc4.get('bubbleEightSc4')) {
+if (Date.now() - sceneFourTime > 24000&&mapSc4.get('bubbleEightSc4')) {
   hadleOrderSpeach("bubbleEightSc4",mapSc4);
   c4.drawImage(trafficLight,(canvasFour.width/2),(canvasFour.height*.64),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
    bubbleRight4.handleTextAndBubble(c4,"רעיון טוב",true, "red");
 }
 //twisted traffic light
-if (Date.now() - sceneFourTime > 24000&&mapSc4.get('bubbleNineSc4')) {
+if (Date.now() - sceneFourTime > 26500&&mapSc4.get('bubbleNineSc4')) {
   hadleOrderSpeach("bubbleNineSc4",mapSc4);
   c4.drawImage(trafficLigthTwist,(canvasFour.width*0.15),(canvasFour.height*.81),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
   createSparks(canvasFour.width * 0.14, canvasFour.height * 0.97, c4);
    bubbleRight4.handleTextAndBubble(c4,"אבא , יש לך רעיון איפה נשתול את הרמזור ",true, "red");
    sceneFour.classList.add("add-moving-car-animation");
 }
-if (Date.now() - sceneFourTime > 27000&&mapSc4.get('bubbleTenSc4')) {
+if (Date.now() - sceneFourTime > 29500&&mapSc4.get('bubbleTenSc4')) {
   hadleOrderSpeach("bubbleTenSc4",mapSc4);
   c4.drawImage(trafficLigthTwist,(canvasFour.width*0.15),(canvasFour.height*.81),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
   createSparks(canvasFour.width * 0.14, canvasFour.height * 0.97, c4);
    bubbleRight4.handleTextAndBubble(c4,"כן, יש לי מקום ממש מצויין",false, "green");
 }
-if (Date.now() - sceneFourTime > 30000&&mapSc4.get('bubbleElevenSc4')) {
+if (Date.now() - sceneFourTime > 33000&&mapSc4.get('bubbleElevenSc4')) {
   hadleOrderSpeach("bubbleElevenSc4",mapSc4);
   c4.drawImage(trafficLigthTwist,(canvasFour.width*0.15),(canvasFour.height*.81),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
   createSparks(canvasFour.width * 0.14, canvasFour.height * 0.97, c4);
-   bubbleRight4.handleTextAndBubble(c4,"אבא, למה יש ניידת משטרה מאחרנו",true, "red");
+   bubbleRight4.handleTextAndBubble(c4,"אבא, למה יש ניידת משטרה מאחורינו",true, "red");
 }
-if (Date.now() - sceneFourTime > 33000&&mapSc4.get('bubbleTwelfeSc4')) {
+if (Date.now() - sceneFourTime > 36000&&mapSc4.get('bubbleTwelfeSc4')) {
   hadleOrderSpeach("bubbleTwelfeSc4",mapSc4);
   c4.drawImage(trafficLigthTwist,(canvasFour.width*0.15),(canvasFour.height*.81),(canvasFour.width/7)*carSize,(canvasFour.height/5)*carSize)
   createSparks(canvasFour.width * 0.14, canvasFour.height * 0.97, c4);
    bubbleRight4.handleTextAndBubble(c4,"אוי ,זה בטח בגלל ששכחנו לשים שלט של נהג חדש",false, "green");
 }
-if (Date.now() - sceneFourTime > 36000&&mapSc4.get('bubbleThirteenSc4')) {
+if (Date.now() - sceneFourTime > 40000&&mapSc4.get('bubbleThirteenSc4')) {
    hadleOrderSpeach('bubbleThirteenSc4',mapSc4);
     startScene5()
     // sceneFiveTime = Date.now();
@@ -811,26 +807,26 @@ const bubbleRight5 = new Bubble(
     c5.drawImage(trafficLightHalf,(canvasFive.width*0.88),(canvasFive.height*.6),(canvasFive.width/7)*carSize,(canvasFive.height/5)*carSize)
 
 
-if(Date.now() - sceneFourTime > 40000 &&mapSc5.get('bubbleOneSc5')){
+if(Date.now() - sceneFourTime > 44000 &&mapSc5.get('bubbleOneSc5')){
     c5.fillStyle='white';
       c5.fill();
     
       bubbleRight5.handleTextAndBubble(c5," נו אבא מתי הרמזור יתחלף לירוק ",true, "red");
       
     }
-    if(Date.now() - sceneFourTime > 43000&&mapSc5.get('bubbleTwoSc5')){
+    if(Date.now() - sceneFourTime > 47000&&mapSc5.get('bubbleTwoSc5')){
   c5.fillStyle='white';
       c5.fill();
   hadleOrderSpeach("bubbleTwoSc5", mapSc5);
   bubbleRight5.handleTextAndBubble(c5,"אתה בטוח שנתת לו מספיק מים",true, "red");
 }
-if(Date.now() - sceneFourTime  > 46000&&mapSc5.get('bubbleThreeSc5')){
+if(Date.now() - sceneFourTime  > 51000&&mapSc5.get('bubbleThreeSc5')){
    c5.fillStyle='white';
       c5.fill();
   hadleOrderSpeach("bubbleThreeSc5", mapSc5);
     bubbleRight5.handleTextAndBubble(c5,"את רוצה לנסוע באדום? צריך לחכות בסבלנות",false, "green");
 }
-if(Date.now() - sceneFourTime  > 50000&&mapSc5.get('bubbleFourSc5')){
+if(Date.now() - sceneFourTime  > 55000&&mapSc5.get('bubbleFourSc5')){
   hadleOrderSpeach("bubbleFourSc5", mapSc5);
   carReverse()
 }
@@ -850,10 +846,10 @@ function carReverse(){
   reverseSpeed+=0.2
   requestAnimationFrame(carReverse)
   }
-  if(reverseSpeed>=canvasFive.width/2)
+  if(reverseSpeed>=canvasFive.width/2||Date.now() - sceneFourTime >60000)
   {
-    sceneEnd.classList.remove('none')
     sceneFive.classList.add('none')
+    sceneEnd.classList.remove('none')
   }
 }
 
@@ -871,3 +867,8 @@ cEnd.drawImage(endImage,0,0,canvasEnd.width,canvasEnd.height)
 function delay(ms){
   return new Promise((res)=>{setTimeout(res,ms)})
 }
+
+//start animations
+setTimeout(()=>{
+startTextAnimation()
+},1000)
