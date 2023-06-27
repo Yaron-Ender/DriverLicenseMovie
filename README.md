@@ -4,9 +4,7 @@
 
  ![picture of driving car](./assets/trailer.png)
 
-  
 ## Links
-Detailed explanation in hebrew about this App on YouTube
 [dirver-license-animation](https://dirver-license-animation.netlify.app) 
     
 ## Technologies
