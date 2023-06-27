@@ -1,7 +1,8 @@
 # canvas-comics-animation
 ## overView
 > On the occasion of my daughter's driver's license, I made a cartoon in canvas
- [picture of driving car](./assets/trailer.png)
+
+ ![picture of driving car](./assets/trailer.png)
 
   
 ## Links
